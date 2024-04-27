@@ -20,7 +20,6 @@ router.get(
     jwtParse, 
     MyRestaurantController.getMyRestaurant);
 
-// /api/my/restaurant
 router.post(
     "/",
     upload.single("imageFile"), 
