@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
 import User from '../models/user';
-import { validationResult } from 'express-validator';
-// import { handleValidationErrors } from '../middleware/validation';
 
 const getCurrentUser = async (req: Request, res: Response) => {
     try {
@@ -40,13 +38,6 @@ const createCurrentUser = async (req: Request, res: Response) => {
 
 const updateCurrentUser = async (req: Request, res: Response) => {
     try {
-        // handleValidationErrors;
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
         const { name, addressLine1, country, city } = req.body;
         const user = await User.findById(req.userId);
 
